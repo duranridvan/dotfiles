@@ -22,10 +22,6 @@ backup_if_exist ~/.zsh && ln -s dotfiles/zsh ~/.zsh
 backup_if_exist ~/.vimrc && ln -s dotfiles/vimrc ~/.vimrc
 backup_if_exist ~/.vim && ln -s dotfiles/vim ~/.vim
 
-# Install dir_colors.
-backup_if_exist ~/.dir_colors && \
-  ln -s dotfiles/dircolors/dircolors.ansi-dark ~/.dir_colors
-
 # Install readline inputrc.
 backup_if_exist ~/.inputrc && ln -s dotfiles/inputrc ~/.inputrc
 
@@ -71,25 +67,4 @@ if [[ $(uname) == *Linux* ]]; then
     echo "Skipped installing i3 dotfiles."
   fi
 
-  # Fonts
-  if [[ ! -z $(command -v fc-cache) ]]; then
-    backup_if_exist ~/.fonts && ln -s dotfiles/fonts ~/.fonts
-    fc-cache -fv
-  else
-    echo "Skipped installing fonts."
-  fi
-
-  # Gnome apps such as gnome-terminal
-  if [[ ! -z $(command -v gnome-terminal) ]]; then
-    backup_if_exist ~/.gconf && ln -s dotfiles/gconf ~/.gconf
-  else
-    echo "Skipped installing gnome apps."
-  fi
-
-  # Fluxbox
-  if [[ ! -z $(command -v fluxbox) ]]; then
-    backup_if_exist ~/.fluxbox && ln -s dotfiles/fluxbox ~/.fluxbox
-  else
-    echo "Skipped installing fluxbox dotfiles."
-  fi
 fi
