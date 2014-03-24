@@ -1,6 +1,0 @@
-#!/bin/bash
-#
-# From https://github.com/yiuin/i3-wm-scripts/blob/master/goto
-
-name=`i3-msg -t get_marks | tr -d '[],' | sed -e 's/""/\n/g' | tr -d '"' | dmenu -p 'jump'`;
-/usr/bin/i3-msg "[con_mark=$name]" focus

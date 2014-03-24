@@ -31,7 +31,7 @@ export LSCOLORS=exFxcxdxAxexbxHxGxcxBx
 export TERM="screen-256color"
 
 # Prefer locally installed binaries.
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH:~/bin
 
 ##############################################################
 # tmux management
