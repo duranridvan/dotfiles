@@ -22,9 +22,6 @@ backup_if_exist ~/.zsh && ln -s dotfiles/zsh ~/.zsh
 backup_if_exist ~/.vimrc && ln -s dotfiles/vimrc ~/.vimrc
 backup_if_exist ~/.vim && ln -s dotfiles/vim ~/.vim
 
-# Install readline inputrc.
-backup_if_exist ~/.inputrc && ln -s dotfiles/inputrc ~/.inputrc
-
 # Install tmux configuration.
 backup_if_exist ~/.tmux.conf && ln -s dotfiles/tmux.conf ~/.tmux.conf
 
@@ -39,17 +36,8 @@ if [[ ! -e ~/.gitconfig_user ]]; then
   fi
 fi
 
-# Install config directory. Contains configuration for apps such as sakura &
-# htop.
-backup_if_exist ~/.config && ln -s dotfiles/config ~/.config
-
 # Linux specific environment when X is installed.
 if [[ $(uname) == *Linux* ]]; then
-  # X configurations.
-  backup_if_exist ~/.xinitrc && ln -s dotfiles/xinitrc ~/.xinitrc
-  backup_if_exist ~/.Xmodmap && ln -s dotfiles/Xmodmap ~/.Xmodmap
-  backup_if_exist ~/.xsessionrc && ln -s dotfiles/xsessionrc ~/.xsessionrc
-
   # i3
   if [[ ! -z $(command -v i3) ]]; then
     backup_if_exist ~/.i3 && ln -s dotfiles/i3 ~/.i3

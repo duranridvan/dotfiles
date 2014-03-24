@@ -1,13 +1,3 @@
-" Pretty syntax hi-lighting.
-syntax enable
-" force vim to use 256 colors.
-set background=dark
-
-" solarized settings.
-let g:solarized_termtrans = 1
-let g:solarized_contrast = "high"
-let g:solarized_visibility = "high"
-colorscheme solarized
 
 " Turn on filetype plugin & indent
 filetype plugin indent on
@@ -38,43 +28,9 @@ noremap <s-k> <pageup>
 noremap <s-l> <s-a>
 noremap <s-h> <s-i>
 
-" Seamlessly navigate between vim & tmux panes.
-" Credit goes to https://github.com/aaronjensen & this post
-" http://www.codeography.com/2013/06/19/navigating-vim-and-tmux-splits.html for
-" this wonderful tip.
-if exists('$TMUX')
-  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-    let previous_winnr = winnr()
-    silent! execute "wincmd " . a:wincmd
-    if previous_winnr == winnr()
-      call system("tmux select-pane -" . a:tmuxdir)
-    endif
-  endfunction
-
-  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
-
-  nnoremap <silent> <c-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-  nnoremap <silent> <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-  nnoremap <silent> <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-  nnoremap <silent> <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  nnoremap <c-l> <c-w>l
-  nnoremap <c-h> <c-w>h
-  nnoremap <c-k> <c-w>k
-  nnoremap <c-j> <c-w>j
-endif
-
 " Remap Esc to kj.
 inoremap <esc> <nop>
 inoremap kj <esc>
-
-" Arrow keys no more.
-noremap <left>  <nop>
-noremap <right> <nop>
-noremap <up>    <nop>
-noremap <down>  <nop>
 
 " Shortcuts for navigating between header, source & tests for C++.
 " TODO: Need to be able to go to source/header from test files.
@@ -195,11 +151,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " A trick by Steve Losh to use w!! to sudo & write a file with vim
 " http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
 cmap w!! w !sudo tee % >/dev/null
-
-" Bundle plugins.
-if filereadable(glob("~/.vim/bundle.vim"))
-  source ~/.vim/bundle.vim
-endif
 
 " Work specific configuration
 if filereadable(glob("~/workdotfiles/vimrc"))
