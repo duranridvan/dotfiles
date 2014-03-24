@@ -1,8 +1,0 @@
-[begin] (fluxbox)
-[include] (/etc/X11/fluxbox/fluxbox-menu)
-[submenu] (Keyboards)
-[exec] (en) {setxkbmap us}
-[exec] (ar) {setxkbmap arm}
-[end]
-[end]
-
