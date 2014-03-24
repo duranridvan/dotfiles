@@ -16,3 +16,6 @@
   path = ~/.gitconfig_user
 [color]
 	ui = auto
+[user]
+	name = duranridvan
+	email = duranridvan@gmail.com
