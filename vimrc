@@ -1,4 +1,10 @@
 
+" Let the color come.
+syntax on
+
+" water!!!!
+colorscheme desert
+
 " Turn on filetype plugin & indent
 filetype plugin indent on
 
@@ -37,7 +43,7 @@ inoremap kj <esc>
 " See http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file for
 " more ways of doing this.
 " Also see :help filename-modifiers.
-nnoremap <leader>es :e %:p:s,_test.cc$,.h,:s,.h$,.cc,<cr>
+nnoremap <leader>ec :e %:p:s,_test.cc$,.h,:s,.h$,.cc,<cr>
 nnoremap <leader>eh :e %:p:s,_test.cc$,.cc,:s,.cc$,.h,<cr>
 nnoremap <leader>et :e %:p:s,_test.cc$,.cc,:s,.h$,.cc,:s,.cc$,_test.cc,<cr>
 
