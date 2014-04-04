@@ -68,18 +68,6 @@ set backspace=2
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
-" Mouse support within tmux.
-if has("mouse")
-  " Enable mouse mode except in insert mode. Clicking in insert mode gives us
-  " garbage!
-  set mouse=nvch
-  set mousehide
-  if &term =~ '^screen'
-    "tmux knows the extended mouse mode
-    set ttymouse=xterm2
-  endif
-endif
-
 " Statusline. Copied shamelessly from
 " http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
 set statusline=%t       "tail of the filename
