@@ -1,4 +1,21 @@
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+
+Plugin 'ctrlpvim/ctrlp.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
 " Let the color come.
 syntax on
 
@@ -43,7 +60,7 @@ inoremap kj <esc>
 " See http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file for
 " more ways of doing this.
 " Also see :help filename-modifiers.
-nnoremap <leader>ec :e %:p:s,_test.cc$,.h,:s,.h$,.cc,<cr>
+nnoremap <leader>ec :e %<.cc<cr>
 nnoremap <leader>eh :e %:p:s,_test.cc$,.cc,:s,.cc$,.h,<cr>
 nnoremap <leader>et :e %:p:s,_test.cc$,.cc,:s,.h$,.cc,:s,.cc$,_test.cc,<cr>
 
@@ -145,6 +162,16 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " A trick by Steve Losh to use w!! to sudo & write a file with vim
 " http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
 cmap w!! w !sudo tee % >/dev/null
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ --ignore .git5_specs
+      \ --ignore review
+      \ -g ""'
 
 " Work specific configuration
 if filereadable(glob("~/workdotfiles/vimrc"))

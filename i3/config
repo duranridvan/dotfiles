@@ -27,10 +27,10 @@ bindsym $mod+Shift+Q kill
 bindsym $mod+d exec dmenu_run
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -51,7 +51,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+% split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -152,3 +152,18 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+bindsym Mod4+l exec "i3lock -c 000000 && xset dpms force off"
+
+exec --no-startup-id /usr/bin/cinnamon-settings-daemon
+exec --no-startup-id nm-applet
+exec --no-startup-id /usr/share/goobuntu-indicator/goobuntu_indicator.py
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id cinnamon-sound-applet
+exec --no-startup-id ~/dotfiles/bin/autolocker
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -- -5% && killall -SIGUSR1 i3status
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
+
+

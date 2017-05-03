@@ -1,0 +1,3 @@
+#compdef stack
+
+_arguments "*: :((experiments start_shopping_server snapshot start_snapshot start_admixer admixer_blaze prodserver allprod down))"

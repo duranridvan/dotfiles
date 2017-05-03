@@ -36,7 +36,7 @@ export PATH=/usr/local/bin:$PATH:~/bin
 ##############################################################
 # tmux management
 ##############################################################
-source ~/.zsh/tmux.zsh
+#source ~/.zsh/tmux.zsh
 
 ##############################################################
 # Prompt
@@ -57,6 +57,8 @@ source ~/.zsh/usb_mount.zsh
 setopt inc_append_history
 # Reloads the history whenever you use it
 setopt share_history
+# remove newlines from history
+setopt HIST_REDUCE_BLANKS
 
 ##############################################################
 # Aliases
@@ -81,11 +83,14 @@ alias zshrc='$EDITOR ~/.zshrc && source ~/.zshrc'
 alias i3config='$EDITOR ~/.i3/config && i3-msg reload'
 alias tmux='tmux -2'
 alias grep='grep --color=always'
+tohex() { echo "obase=16; $1" | bc | tr '[:upper:]' '[:lower:]'; }
+todec() { a=${1:u}; echo "ibase=16; ${a#0X}" | bc; }
 
 ##############################################################
 # Autocompletion
 ##############################################################
 
+fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
 compinit
 

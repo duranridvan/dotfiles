@@ -17,5 +17,9 @@
 [color]
 	ui = auto
 [user]
-	name = duranridvan
-	email = duranridvan@gmail.com
+	name = Ridvan Duran
+	email = ridvan@google.com
+[url "sso://user/ridvan/"]
+	insteadof = me:
+[gui]
+	recentrepo = /usr/local/google/home/ridvan/work
