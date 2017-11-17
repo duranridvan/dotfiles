@@ -52,7 +52,7 @@ noremap <s-l> <s-a>
 noremap <s-h> <s-i>
 
 " Remap Esc to kj.
-inoremap <esc> <nop>
+" inoremap <esc> <nop>
 inoremap kj <esc>
 
 " Shortcuts for navigating between header, source & tests for C++.
@@ -116,18 +116,18 @@ augroup formatting
   autocmd BufWritePre     * :call TrimWhiteSpace()
 
   " Sort #include blocks.
-  function! SortIncludeBlocks()
-    " Save cursor & window view before we sort.
-    let l:winview = winsaveview()
-    " Match from beginning of #include to the line before empty newline.
-    g/^#include.*/,/^$/-1 sort
-    " Restore cursor position & window view
-    call winrestview(l:winview)
-  endfunction
-  " Need to escape the | operator as well as ( in vim :(
-  autocmd FileWritePre    *.\(cc\|h\) :call SortIncludeBlocks()
-  autocmd FileAppendPre   *.\(cc\|h\) :call SortIncludeBlocks()
-  autocmd BufWritePre     *.\(cc\|h\) :call SortIncludeBlocks()
+  " function! SortIncludeBlocks()
+  "   " Save cursor & window view before we sort.
+  "   let l:winview = winsaveview()
+  "   " Match from beginning of #include to the line before empty newline.
+  "   g/^#include.*/,/^$/-1 sort
+  "   " Restore cursor position & window view
+  "   call winrestview(l:winview)
+  " endfunction
+  " " Need to escape the | operator as well as ( in vim :(
+  " autocmd FileWritePre    *.\(cc\|h\) :call SortIncludeBlocks()
+  " autocmd FileAppendPre   *.\(cc\|h\) :call SortIncludeBlocks()
+  " autocmd BufWritePre     *.\(cc\|h\) :call SortIncludeBlocks()
 
   " Maps <localleader>c to comment current line.
   autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>

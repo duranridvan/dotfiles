@@ -1,3 +1,4 @@
 *.s[a-w][a-z]
 *~
 zsh/cache
+vim/,netrwhist
